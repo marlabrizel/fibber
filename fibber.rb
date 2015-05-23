@@ -8,4 +8,11 @@ end
 
 fibonacci(quantity).each_slice(5) do |a,b,c,d,e|
   p [a,b,c,d,e].join(", ")
+ end
+
+# Challenge 2
+
+fibonacci(quantity).each_slice(5) do |a,b,c,d,e|
+  p [a,b,c,d,e].map{ |fibs| fibs.to_s.rjust(4) }.join(", ")
 end
+binding.pry
