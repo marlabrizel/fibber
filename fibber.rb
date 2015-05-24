@@ -1,17 +1,25 @@
-quantity = 15
+quantity = 20
 
 def fibonacci(quantity)
   (1..quantity-2).inject([0, 1]) { |fibs, n| fibs << (fibs[-1] + fibs[-2]) }
 end
 
-# Challenge 1
+puts "\nChallenge 1"
 
 fibonacci(quantity).each_slice(5) do |a,b,c,d,e|
-  p [a,b,c,d,e].join(", ")
+  puts [a,b,c,d,e].join(", ")
  end
 
-# Challenge 2
+puts "\nChallenge 2"
 
 fibonacci(quantity).each_slice(5) do |a,b,c,d,e|
-  p [a,b,c,d,e].map{ |fibs| fibs.to_s.rjust(4) }.join(", ")
+  puts [a,b,c,d,e].map{ |fib| fib.to_s.rjust(4) }.join(", ")
+end
+
+puts "\nChallenge 3"
+
+fibs = fibonacci(quantity)
+max_length = fibs.map { |fib| fib.to_s.length }.max
+fibs.each_slice(5) do |a,b,c,d,e|
+  puts [a,b,c,d,e].map{ |fib| fib.to_s }.map{ |fib| fib.rjust(max_length + 1) }.join(", ")
 end
