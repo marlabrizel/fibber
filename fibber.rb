@@ -1,4 +1,6 @@
-quantity = 20
+puts "Please enter the number of places to which I should generate the Fibonacci sequence."
+
+quantity = gets.chomp!.to_i
 
 def fibonacci(quantity)
   (1..quantity-2).inject([0, 1]) { |fibs, n| fibs << (fibs[-1] + fibs[-2]) }
